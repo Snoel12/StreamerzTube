@@ -1,3 +1,7 @@
+"use client";
+import { trpc } from "@/trpc/client";
+
 export default function Home() {
-  return <div> Going to load vids in the future</div>;
+  const { data } = trpc.hello.useQuery({ text: "Sebastien" });
+  return <div>Client component says {data?.greeting}</div>;
 }
